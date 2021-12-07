@@ -59,7 +59,7 @@ export default function Rating(props) {
           }
         ></i>
       </span>
-      <span>{numRevius + " reviews"}</span>
+      <span>{numRevius ? numRevius + " reviews" : "no reviews"}</span>
     </div>
   );
 }
