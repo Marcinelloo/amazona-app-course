@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 import MessageBox from "../components/MessageBox";
 
@@ -8,7 +8,7 @@ export default function CartScreen() {
   const params = useParams();
   const { id: productId } = params;
 
-  const navigate= useNavigate();
+  const navigate = useNavigate();
 
   const { search } = useLocation();
   const qtyInUrl = new URLSearchParams(search).get("qty");
@@ -24,11 +24,11 @@ export default function CartScreen() {
   }, [dispatch, productId, qty]);
 
   const removeFromCartHandler = (id) => {
-    // delete action
+    dispatch(removeFromCart(productId));
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=shipping');
+    navigate("/signin?redirect=shipping");
   };
 
   return (
