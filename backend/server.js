@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import productRouter from "./routers/productRouter.js";
 import userRauter from "./routers/userRauter.js";
 import dotenv from "dotenv";
+import orderRouter from "./routers/orderRouter.js";
 
 dotenv.config();
 
@@ -16,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/amazona", {
 
 app.use("/api/users", userRauter);
 app.use("/api/products", productRouter);
-
+app.use('/api/orders', orderRouter);
 app.get("/", (req, res) => {
   res.send("Server ready");
 });
