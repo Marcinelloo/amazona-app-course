@@ -55,6 +55,7 @@ function App() {
         </header>
         <main>
           <Routes>
+            <Route path="/cart" element={<CartScreen />}></Route>
             <Route path="/cart/:id" element={<CartScreen />} exact></Route>
             <Route path="/product/:id" element={<ProductSreen />} exact />
             <Route path="/signin" element={<SigninScreen />} exact />
